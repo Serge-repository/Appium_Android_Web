@@ -3,6 +3,7 @@ package GeneralSetup;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
+import io.appium.java_client.service.local.AppiumDriverLocalService;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -23,6 +24,7 @@ public class TestBasisMobile {
     public DesiredCapabilities capabilities = new DesiredCapabilities();
     public URL serverAddress;
     public String browserName = Browser.getRequiredBrowser().getBrowserName();
+    private static final AppiumDriverLocalService appiumDriverLocalService = AppiumDriverLocalService.buildDefaultService();
 
     public HomeView homeView;
     public PowerwallView powerwallView;
@@ -48,12 +50,14 @@ public class TestBasisMobile {
         capabilities.setCapability("unlockKey", "0000");
 
         serverAddress = new URL("http://0.0.0.0:4723/wd/hub");
+        appiumDriverLocalService.start();
         initializeDriver();
     }
 
     @AfterClass
     public void actionsAfterClass() {
         appiumDriver.quit();
+        appiumDriverLocalService.stop();
     }
 
     private void initializeDriver() {
