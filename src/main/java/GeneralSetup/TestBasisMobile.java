@@ -49,7 +49,7 @@ public class TestBasisMobile {
         capabilities.setCapability("unlockType", "pin");
         capabilities.setCapability("unlockKey", "0000");
 
-        serverAddress = new URL("http://0.0.0.0:4723/wd/hub");
+        serverAddress = new URL("http://127.0.0.1:4723/wd/hub");
         appiumDriverLocalService.start();
         initializeDriver();
     }
