@@ -6,16 +6,14 @@ pipeline {
 
     parameters {
         string(name: 'branch', defaultValue: 'master', description: 'Branch to checkout')
-        string(name: 'SUITE', defaultValue: 'src/test/resources/methods_suite.xml',
+        string(name: 'SUITE', defaultValue: 'src/test/resources/testng.xml',
             description: '''TestNG xml suite. Examples:
-                            src/test/resources/methods_suite.xml,
-                            src/test/resources/methods_suite.xml,src/test/resources/first_suite.xml.
+                            src/test/resources/methods_suite.xml.
                             Leave this field empty if you want to run single test class.
                             ''')
-        string(name: 'TEST_CLASS', defaultValue: 'tests.HomePageTests',
+        string(name: 'TEST_CLASS', defaultValue: 'appium_tests.DemoApkTests',
             description: '''Select test class to execute. Examples:
-                            tests.HomePageTests,
-                            tests.AdvancedSelenium.
+                            appium_tests.HomePageTests.
                             Leave this field empty if you want to run xml suite.
                             ''')
         string(name: 'forks', defaultValue: '1', description: 'Number of parallel threads')
