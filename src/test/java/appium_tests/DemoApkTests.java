@@ -8,7 +8,7 @@ public class DemoApkTests extends TestBasisMobile {
     @Test
     public void firstTest(){
         homeView.getDirectPage();
-        homeView.chooseModelX();
+//        homeView.chooseModelX();
         powerwallView.orderNow();
         powerwallView.clickNewHomeLink();
         powerwallView.fillFootage();
